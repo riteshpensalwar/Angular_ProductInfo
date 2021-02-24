@@ -253,21 +253,24 @@
                         - Calls to External Services
                         - One-Time Event Subscription
                 - ngDestroy()
-        - If the Complex UI e.g. <select>, <ul>, <table> are repeated in components's UI template then think of creating custom re-usable complex elements
+        - If the Complex UI e.g. select, ul, table are repeated in components's UI template then think of creating custom re-usable complex elements
         - Eliminate the hard-coding of propeties on UI for structural directive                 
     - Communication Across Components
         - Parent - Child Components
         - Component Reusability
+
 2. Angular Forms
     - Reactive Forms
     - Validation
         - Custom Validations
+
 3. Angular Services
     - Utilities
     - Pub/Sub Communication across Components using Angular Services
     - HTTP Calls
         - CRUD Operations
         - Token Based Secure Calls
+
 4. Single Page Application (SPA)
     - Routing
         - Parameterized Routing
@@ -275,8 +278,12 @@
         - Lazy Loading  
     - DEMO: for Route Guards
             - Auth Guards   
+
 5. Creating Custom Directives
+
 6. Testing                   
+
+
 
 
 
