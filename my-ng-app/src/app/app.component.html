@@ -26,4 +26,28 @@
   <br>
   <input type="text" class="form-control" [(ngModel)]="fullName">
   <h2>{{fullName}}</h2>
+  <div>List of Actors</div>
+  <select class="form-control" [(ngModel)]="selectedActor">
+    <option *ngFor="let act of actors" value="{{act}}">{{act}}</option>
+  </select>
+  <br>
+  <strong>Selected Actor is = {{selectedActor}}</strong>
+  <br>
+  <select class="form-control" [(ngModel)]="selectedCharacter">
+    <option *ngFor="let c of characters" value="{{c.id}}">{{c.name}}</option>
+  </select>
+  <br>
+  <strong>
+    Selected Character is = {{selectedCharacter}}
+  </strong>
+  <br>
+  <input type="button" value="Toggle" (click)="toggleUI()">
+  <br>
+  <div *ngIf="canShow">
+    The Message will be shown based on Toggle
+  </div>
+  <br>
+  <div [hidden]="!canShow">
+    The Message will be shown based on Toggle
+  </div>
 </div>

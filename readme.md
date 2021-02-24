@@ -227,6 +227,34 @@
                 - THis updaed value of the bound property will be passed to the Component
                 - The component will call its 'ngOnChanges' internal method and will accept updated value from UI
                 - This value will be processed (if any logic iss written for it), this value will be send back to UI to elements where this property is bound (with property binding / two-way binding / interpolation)   
+    - Angular Directives
+        - Directive
+            - A class that is used to define a custom re-usable UI or custom bechaior for exisitng HTML element
+        - Component Directive
+            - Each component is Directive and this component can be used as custom HTML UI for reusability
+        - Atrribute Directive
+            - It is a type that is used to define a custom behavior for exisditng HTML element
+                - ngModel, formGroup, formControlName     
+        - Structural Directive
+            - Used to dynamically add/remove HTML UI elements from DOM    
+            - e.g.
+                - *ngFor, this execute a for..of loop to generate DOM elements based on collection       
+                - *ngIf, the if condition, evaluate a if statement to add or remove HTML element 
+                - *ngSwitch ngSwitchCase     
+    - Optimize component using following features
+        - Do not write complex or time-consuming code in Constructoer
+            - Lifecycle methods
+                - ngOnChange(), OnChnage interface
+                    -  executed when the property is changed with Two-Way binding 
+                - ngOnInit(), OnInit interface
+                    - Executed 'only once' after the constructor is executed
+                    - Use this method to write logng running process logic
+                        - Heavy Collection Operations  
+                        - Calls to External Services
+                        - One-Time Event Subscription
+                - ngDestroy()
+        - If the Complex UI e.g. <select>, <ul>, <table> are repeated in components's UI template then think of creating custom re-usable complex elements
+        - Eliminate the hard-coding of propeties on UI for structural directive                 
     - Communication Across Components
         - Parent - Child Components
         - Component Reusability
@@ -251,5 +279,12 @@
 6. Testing                   
 
 
+
+
 # Hands-on-lab
 1. Create a Angular Component that will have UI and functionality of standard Calculator 
+2. Modify the ProductComponent for Following operations (Immediate)
+    - Generate the ProductRowId as Auto-Increament from the last record's ProductRowId
+    - Generate a 'delete' button for each table row showing Products List. When this button is clicked the record must be deleted
+    - Add two radio buttons on the top of Product List  table for following operations
+        - Sort and Reverse the Product List base on Prouct Name and Base Price
