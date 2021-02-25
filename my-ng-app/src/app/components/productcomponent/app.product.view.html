@@ -7,15 +7,15 @@
         <div class="container">
            <div class="form-group">
               <label>Product Row Id</label>
-              <input type="text" class="form-control" [(ngModel)]="product.ProductRowId">
+              <input type="text" readonly="true" class="form-control" [(ngModel)]="product.ProductRowId">
            </div>
            <div class="form-group">
             <label>Product  Id</label>
-            <input type="text" class="form-control" [(ngModel)]="product.ProductId">
+            <input type="text"  maxlength="15" class="form-control" [(ngModel)]="product.ProductId">
           </div>
           <div class="form-group">
             <label>Product Name</label>
-            <input type="text" class="form-control" [(ngModel)]="product.ProductName">
+            <input type="text" maxlength="50" class="form-control" [(ngModel)]="product.ProductName">
           </div>
           <div class="form-group">
             <label>Category Name</label>
@@ -31,11 +31,11 @@
           </div>
           <div class="form-group">
             <label>Description</label>
-            <input type="text" class="form-control" [(ngModel)]="product.Description">
+            <input type="text"  maxlength="100" class="form-control" [(ngModel)]="product.Description">
           </div>
           <div class="form-group">
             <label>Base Price</label>
-            <input type="text" class="form-control" [(ngModel)]="product.BasePrice">
+            <input type="number"  maxlength="10" class="form-control" [(ngModel)]="product.BasePrice" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
           </div>
           <div class="form-group">
             <input type="button" value="Save" class="btn btn-success" (click)="save()">
@@ -71,8 +71,8 @@
           </table> -->
           
           <h2>The Table that is generated dynamically with headers and rows</h2>
-          <input type="radio" name="choice" value="SortbyProductName" (click)="sort1()"> Sort by ProductName
-    <input type="radio" name="choice" value="SortbyBasePrice" (click)="sort2()"> Sort by Base Price
+          <input type="radio" name="Sort" value="SortbyProductName" (click)="sort()"> Sort
+    <input type="radio" name="Sort" value="SortbyBasePrice" (click)="revert()"> Revert
           <table class="table table-bordered table-striped table-danger">
               <thead>
                 <tr>
@@ -88,7 +88,7 @@
                     <td *ngFor="let header of columnHeaders">
                        {{prd[header]}}
                     </td>
-                    <td ><input type="button" value="Delete" class="btn btn-success" (click)="delete(prd)"></td>
+                    <td ><input type="button" value="Delete" class="btn btn-success" (click)="delete()"></td>
                 </tr>
                 <tr>
                 

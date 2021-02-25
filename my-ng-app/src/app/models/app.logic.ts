@@ -21,15 +21,21 @@ export class Logic {
     {
       this.products.splice(selIndex, 1);   
     } 
+    
+    console.log(Math.max(prd.ProductRowId));
+    //console.log(Math.max(this.products.map(prd.ProductRowId)));
+    console.log('Max RowID:' + Math.max.apply(Math, this.products.map(function(o) { return o.ProductRowId; })));
+    
+    prd.ProductRowId = Math.max.apply(Math, this.products.map(function(o) { return o.ProductRowId; }))+1;
     this.products.push(prd);
     isDelete=false;   
     return this.products;
   }
   
-  deleteProduct(prd:ProductInfo):void{
-    const index: number = this.products.indexOf(prd);
-     console.log(index);
-     this.products.splice(index, 1);
+  deleteProduct(selIndex:number):void{
+    //const index: number = this.products.indexOf(prd);
+     console.log(selIndex);
+     this.products.splice(selIndex, 1);
   }
   
 }
