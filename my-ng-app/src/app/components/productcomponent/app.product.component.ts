@@ -57,21 +57,23 @@ export class ProductComponent implements OnInit{  // the OnInit is implemented b
       this.product = Object.assign({}, prd);
     }
 
-    sort1(): Array<ProductInfo> {
-      return this.products.sort((a,b)=> a.ProductName.localeCompare(b.ProductName));
-      // this.products.sort((a, b) => a.BasePrice - b.BasePrice);
-      // return this.products.sort((a, b) => { if (a.BasePrice < 0) {return -1; } if (b.BasePrice <0 ) {return 1;} return b.BasePrice - a.BasePrice });
+    sort(): Array<ProductInfo> {
+     return this.products.sort((a,b)=> a.ProductName.localeCompare(b.ProductName));
+     // this.products.sort((a, b) => a.BasePrice - b.BasePrice);
+     // return this.products.sort((a, b) => { if (a.BasePrice < 0) {return -1; } if (b.BasePrice <0 ) {return 1;} return b.BasePrice - a.BasePrice });
      
     }
 
-    sort2(): Array<ProductInfo> {
-     return this.products.sort((a,b)=> b.ProductName.localeCompare(a.ProductName));
+    revert(): Array<ProductInfo> {
+      return this.products.sort((a,b)=> b.ProductName.localeCompare(a.ProductName));
+     //this.products.sort((a, b) => b.BasePrice - a.BasePrice);
+     // return this.products.sort((a, b) => { if (b.BasePrice < 0) {return -1; } if (a.BasePrice <0 ) {return 1;} return a.BasePrice - b.BasePrice });
     }
 
-    delete(prd:ProductInfo):void {
-      this.product = prd;
+    delete():void {
+      //this.product = prd;
       if(confirm("Do you want to delete this record?")) {
-        this.logic.deleteProduct(this.product);
+        this.logic.deleteProduct(this.selIndex);
         this.product = new ProductInfo(0, '', '', '', '','',0);
       }
     }
