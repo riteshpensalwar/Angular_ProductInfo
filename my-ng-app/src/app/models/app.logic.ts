@@ -16,8 +16,20 @@ export class Logic {
     return this.products;
   }
 
-  addProduct(prd:ProductInfo): Array<ProductInfo> {
+  addProduct(prd:ProductInfo,isDelete:boolean,selIndex:number): Array<ProductInfo> {
+    if(isDelete==true)  //this logic is for udtaing the existing records
+    {
+      this.products.splice(selIndex, 1);   
+    } 
     this.products.push(prd);
+    isDelete=false;   
     return this.products;
   }
+  
+  deleteProduct(prd:ProductInfo):void{
+    const index: number = this.products.indexOf(prd);
+     console.log(index);
+     this.products.splice(index, 1);
+  }
+  
 }
